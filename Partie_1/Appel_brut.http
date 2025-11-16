@@ -1,0 +1,11 @@
+#ctrl + alt + r pou exécuter
+
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=$ApiKey \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "contents": [{
+      "parts": [{
+        "text": "Explique-moi les APIs en 3 phrases."
+      }]
+    }]
+  }'
