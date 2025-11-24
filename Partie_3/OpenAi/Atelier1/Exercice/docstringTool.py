@@ -147,3 +147,18 @@ def process_python_file(file_path, dry_run=False, doc_style="google"):
         f.writelines(source_lines)
     
     print(f"\nSuccès ! Fichier généré : {output_path}")
+
+
+    import logging
+    logging.basicConfig(level=logging.INFO,format='%(asctime)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler('api_calls.log'),logging.StreamHandler()])
+    logger = logging.getLogger(__name__)
+
+    def generate_docstring(client, code):    
+        logger.info("Appel API pour docstring")    
+        try:        
+            response = client.chat.completions.create(...)        
+            logger.info("Succès API")        
+            return response.choices[0].message.content    
+        except Exception as e:        
+            logger.error(f"Échec API : {e}")        
+            return None
