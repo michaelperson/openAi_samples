@@ -35,10 +35,11 @@ def generate_docstring(client, code_segment, style="Google"):
     prompt = f"""Tu es un développeur Python senior expert en documentation technique.
 Ta mission est de rédiger une docstring complète {chosen_style} pour la fonction ci-dessous.
 
-Règles strictes :
+**Règles strictes** :
 1. Ne renvoie QUE la docstring (délimitée par des triples guillemets).
 2. Pas de markdown, pas de backticks (```).
 3. La description doit être concise et professionnelle.
+4. La documentation doit être en Anglais
 
 Voici la fonction :
 {code_segment}"""
